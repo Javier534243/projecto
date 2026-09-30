@@ -1,0 +1,31 @@
+.fraseAmarilla {
+    color: yellow;
+}
+
+.contendorbienvenida {
+    background-color: rgb(31, 31, 39);
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.frasesPrincipales {
+    color: #ffffff8e;
+}
+
+
+.subtitulo {
+    color: rgb(185, 198, 209);
+}
+
+.fraseVerde {
+    color: chartreuse;
+}
+
+.boton {
+    background-color: chartreuse;
+    width: 100%;
+}
+
