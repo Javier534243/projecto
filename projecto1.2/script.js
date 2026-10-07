@@ -14,7 +14,7 @@ boton.addEventListener("click", () => {
 })
 
 const filas = 15
-const columnas = 20
+const columnas = 15
 
 const tableroArray = []
 
@@ -28,15 +28,30 @@ function crearTablero() {
     }
 }
 
-crearTablero()
+function colocarFantamasAleatorios(cantidad) {
+    let fantamasColocados = 0
 
+    while (fantamasColocados < cantidad) {
+
+        const fRandom = Math.floor(Math.random() * filas)
+        const cRandom = Math.floor(Math.random() * columnas)
+
+        if (tableroArray[fRandom][cRandom] === 0) {
+            tableroArray[fRandom][cRandom] = 1
+            fantamasColocados++
+        }
+
+    }
+}
 console.log(tableroArray)
+crearTablero()
+colocarFantamasAleatorios(5)
 
 function imprimirTablero() {
     let contenidoHtml = ""
     for(let f = 0; f < filas;f++) {
         for(let c = 0;c < columnas;c++) {
-            contenidoHtml += `<div class="casilla"></div>`
+            contenidoHtml += `<div class="casilla" data-f="${f}" data-c="${c}"></div>`
         }
     }
     tablero.innerHTML = contenidoHtml
