@@ -1,5 +1,25 @@
+body {
+    margin: 0;
+}
+
+.margin-inline-auto {
+    margin-inline: auto;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
 .fraseAmarilla {
     color: yellow;
+}
+
+.padding-20px {
+    padding: 20px;
+}
+
+.width-100percent  {
+    width: 100%;
 }
 
 .contendorbienvenida {
@@ -13,6 +33,10 @@
 
 .frasesPrincipales {
     color: #ffffff8e;
+}
+
+.hidden {
+    display: none;
 }
 
 
