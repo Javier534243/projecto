@@ -1,18 +1,38 @@
+* {
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #0f0;
+    font-weight: 700;
+    text-shadow: 0px 0px 5px rgb(117, 181, 117);
+}
+
 .fraseAmarilla {
     color: yellow;
 }
 
 .contendorbienvenida {
-    background-color: rgb(31, 31, 39);
+    background-color: #1c1c2c;
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .hidden {
     display: none;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.width-500px {
+    width: 200px;
 }
 
 .frasesPrincipales {
@@ -31,5 +51,8 @@
 .boton {
     background-color: chartreuse;
     width: 100%;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
 }
 
