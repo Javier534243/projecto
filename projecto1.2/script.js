@@ -20,6 +20,27 @@ const celdas = 16
 
 const filas = 16
 
+const padman = {
+    filaActual: filas/2,
+    celdaActual: celdas/2,
+    moverPacman: function() {
+        window.addEventListener('keydown', (event) => {
+            tableroArray[this.filaActual][this.celdaActual] = 0
+            if ((event.key) === 'ArrowUp') {
+                this.filaActual--
+            } else if (event.key === 'ArrowDown') {
+                this.filaActual++
+            } else if (event.key === 'ArrowRight') {
+                this.celdaActual++
+            } else if (event.key === 'ArrowLeft') {
+                this.celdaActual--
+            }
+            tableroArray[this.filaActual][this.celdaActual] = 2
+            imprimirTablero()
+        })
+    }
+}
+
 const tableroArray = []
 
 function rellenarArray() {
@@ -27,7 +48,7 @@ function rellenarArray() {
         const filaNueva = []
         
         for(let c = 0; c < celdas;c++) {
-            if(c == celdas/2 && f == filas/2) {
+            if(c == padman.celdaActual && f == padman.filaActual) {
                 filaNueva.push(2)
             }
             filaNueva.push(0)
@@ -69,7 +90,7 @@ function imprimirTablero() {
                 contenidoHtml += `<div class="celda"></div>`
             } else if (tableroArray[f][c] == 1) {
                 contenidoHtml += `<div class="celda enemigo"></div>`
-            } else {
+            } else if (tableroArray[f][c] == 2) {
                 contenidoHtml += `<div class="celda pacman"></div>`
             }
             
@@ -79,3 +100,5 @@ function imprimirTablero() {
 }
 
 imprimirTablero()
+
+padman.moverPacman()
