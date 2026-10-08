@@ -1,24 +1,56 @@
+* {
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #0f0;
+    font-weight: 700;
+    text-shadow: 0px 0px 5px rgb(117, 181, 117);
+}
+
 .fraseAmarilla {
     color: yellow;
 }
 
+.imagen {
+    width: 20px;
+    height: 20px;
+}
+
 .contendorbienvenida {
-    background-color: rgb(31, 31, 39);
+    background-color: #1c1c2c;
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .hidden {
     display: none;
 }
 
+.text-align-center {
+    text-align: center;
+}
+
+.width-500px {
+    width: 200px;
+}
+
 .frasesPrincipales {
     color: #ffffff8e;
 }
 
+.pacman {
+    background-color: rgb(187, 187, 27);
+}
+
+.enemigo {
+    background-color: rgb(124, 21, 21);
+}
 
 .subtitulo {
     color: rgb(185, 198, 209);
@@ -28,8 +60,32 @@
     color: chartreuse;
 }
 
+#tablero {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    background-color: #1c1c2c;
+    gap: 2px;
+    padding: 10px;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.celda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border: 2px solid #cccccc3d;
+    box-sizing: border-box;
+}
+
 .boton {
     background-color: chartreuse;
     width: 100%;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
 }
 

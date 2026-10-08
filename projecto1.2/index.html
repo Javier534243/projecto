@@ -1,25 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="pantallaInicial">
-        <h2 class="fraseVerde">PADMAN</h2>
-        <p class="subtitulo">¡Come todos los enemigos para ganar!</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Padman</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div>
+      <h1 class=" text-align-center">PADMAN</h1>
+      <p class="subtitulo text-align-center">¡Come todos los enemigos para ganar!</p>
+      <div class="pantallaInicial" id="contenedorBienvenida">
         <div class="contendorbienvenida">
-            <h3 class="fraseVerde">¡Bienvenido a Padman!</h3>
-            <div>
-                <p class="frasesPrincipales">Usa las fechas del teclado para moverte</p>
-                <p class="frasesPrincipales">Come todos los fantamas enemigos para ganar</p>
-                <p class="fraseAmarilla">¡Ganas puntos por tiempo y subes de nivel cada 30s!</p>
-            </div>
-            <button class="boton">INICIAR JUEGO</button>
+          <h3 class="fraseVerde">¡Bienvenido a Padman!</h3>
+          <div>
+            <p class="frasesPrincipales">Usa las fechas del teclado para moverte</p>
+            <p class="frasesPrincipales">Come todos los fantamas enemigos para ganar</p>
+            <p class="fraseAmarilla">¡Ganas puntos por tiempo y subes de nivel cada 30s!</p>
+          </div>
+          <button class="boton width-500px" id="botonIniciar">INICIAR JUEGO</button>
         </div>
+      </div>
+      <div class="hidden" id="contendorJuego">
+        <div id="datosJuego">
+
+        </div>
+        <div id="tablero">
+
+        </div>
+        <div class="text-align-center">
+            <p>Usa las flechas para moverte</p>
+            <div id="informacionDelNivel"></div>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
