@@ -37,11 +37,23 @@ function rellenarArray() {
 
 function generarEnemigos() {
     for(e = 0;e < 5;e++) {
-        fvalor = Math.floor
+        let interptor = false;
+
+        while(interptor == false) {
+            fValor = Math.floor(Math.random() * filas)
+            cValor = Math.floor(Math.random() * celdas)
+            if(tableroArray[fValor][cValor] == 0) {
+                tableroArray[fValor][cValor] = 1
+                interptor = true
+            }
+
+        }
     }
 }
 
 rellenarArray()
+
+generarEnemigos() 
 
 console.log(tableroArray)
 
