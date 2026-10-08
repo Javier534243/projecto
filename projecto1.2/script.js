@@ -24,6 +24,8 @@ const filas = 16
 
 let enemigosComidos = 0
 
+const enemigos = []
+
 const padman = {
     filaActual: filas/2,
     celdaActual: celdas/2,
@@ -69,6 +71,12 @@ function imprimirDatos() {
 function comerEnemigo(f,c) {
     if(tableroArray[f][c] === 1) {
         enemigosComidos++
+        for(const enemigo of enemigos) {
+            if(enemigo.fila == f && enemigo.celda == c ) {
+                enemigo.vivo = false
+            }
+        }
+        console.log(enemigos)
         imprimirDatos()
     }
 }
@@ -103,14 +111,19 @@ function rellenarArray() {
 }
 
 function generarEnemigos() {
-    for(e = 0;e < 5;e++) {
+    for(let e = 0;e < 5;e++) {
         let interptor = false;
 
         while(interptor == false) {
-            fValor = Math.floor(Math.random() * filas)
-            cValor = Math.floor(Math.random() * celdas)
+            let fValor = Math.floor(Math.random() * filas)
+            let cValor = Math.floor(Math.random() * celdas)
             if(tableroArray[fValor][cValor] == 0) {
                 tableroArray[fValor][cValor] = 1
+                enemigos.push({
+                    fila: fValor,
+                    celda : cValor,
+                    vivo: true,
+                })
                 interptor = true
             }
 
@@ -120,7 +133,7 @@ function generarEnemigos() {
 
 rellenarArray()
 
-generarEnemigos() 
+generarEnemigos()
 
 console.log(tableroArray)
 
