@@ -8,6 +8,8 @@ const botonIniciar = dqs("#botonIniciar")
 
 const contendorJuego= dqs("#contendorJuego")
 
+const datosJuego = dqs("#datosJuego")
+
 const tablero = dqs("#tablero")
 
 botonIniciar.addEventListener("click", () => {
@@ -20,11 +22,14 @@ const celdas = 16
 
 const filas = 16
 
+let enemigosComidos = 0
+
 const padman = {
     filaActual: filas/2,
     celdaActual: celdas/2,
     moverPacman: function() {
         window.addEventListener('keydown', (e) => {
+            e.preventDefault()
             tableroArray[this.filaActual][this.celdaActual] = 0
             if ((e.key) === 'ArrowUp') {
                 if (this.filaActual !== 0) {
@@ -46,13 +51,38 @@ const padman = {
                 }
                 
             }
+            comerEnemigo(this.filaActual,this.celdaActual)
             tableroArray[this.filaActual][this.celdaActual] = 2
             imprimirTablero()
+            comprobadorVictoria()
         })
     }
 }
 
+function imprimirDatos() {
+    let htmlContenido = ""
+    htmlContenido = `<div>Enemigos comidos: ${enemigosComidos}</div>`
+
+    datosJuego.innerHTML = htmlContenido
+}
+
+function comerEnemigo(f,c) {
+    if(tableroArray[f][c] === 1) {
+        enemigosComidos++
+        imprimirDatos()
+    }
+}
+
+function comprobadorVictoria() {
+    if (enemigosComidos === 5) {
+        alert('¡Has ganado!')
+        
+    }
+}
+
 const tableroArray = []
+
+imprimirDatos()
 
 function rellenarArray() {
     for(let f = 0;f < filas;f++) {
@@ -61,8 +91,10 @@ function rellenarArray() {
         for(let c = 0; c < celdas;c++) {
             if(c == padman.celdaActual && f == padman.filaActual) {
                 filaNueva.push(2)
+            } else {
+                filaNueva.push(0)
             }
-            filaNueva.push(0)
+            
         }
         tableroArray.push(filaNueva)
         
