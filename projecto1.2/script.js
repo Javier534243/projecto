@@ -24,23 +24,23 @@ const padman = {
     filaActual: filas/2,
     celdaActual: celdas/2,
     moverPacman: function() {
-        window.addEventListener('keydown', (event) => {
+        window.addEventListener('keydown', (e) => {
             tableroArray[this.filaActual][this.celdaActual] = 0
-            if ((event.key) === 'ArrowUp') {
+            if ((e.key) === 'ArrowUp') {
                 if (this.filaActual !== 0) {
                     this.filaActual--
                 } 
                 
-            } else if (event.key === 'ArrowDown') {
+            } else if (e.key === 'ArrowDown') {
                 if (this.filaActual !== filas-1) {
                     this.filaActual++
                 } 
-            } else if (event.key === 'ArrowRight') {
+            } else if (e.key === 'ArrowRight') {
                 if (this.celdaActual !== celdas-1) {
                     this.celdaActual++
                 }
                 
-            } else if (event.key === 'ArrowLeft') {
+            } else if (e.key === 'ArrowLeft') {
                 if (this.celdaActual !== 0) {
                     this.celdaActual--
                 }
@@ -100,9 +100,9 @@ function imprimirTablero() {
             if (tableroArray[f][c] == 0) {
                 contenidoHtml += `<div class="celda"></div>`
             } else if (tableroArray[f][c] == 1) {
-                contenidoHtml += `<div class="celda enemigo"></div>`
+                contenidoHtml += `<div class="celda enemigo"><img class="imagen" src="img/enemigo.png"></div>`
             } else if (tableroArray[f][c] == 2) {
-                contenidoHtml += `<div class="celda pacman"></div>`
+                contenidoHtml += `<div class="celda pacman"><img class="imagen" src="img/pacman.png"></div>`
             }
             
         }

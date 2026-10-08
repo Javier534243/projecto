@@ -12,6 +12,11 @@ h1 {
     color: yellow;
 }
 
+.imagen {
+    width: 20px;
+    height: 20px;
+}
+
 .contendorbienvenida {
     background-color: #1c1c2c;
     flex-direction: column;
@@ -40,11 +45,11 @@ h1 {
 }
 
 .pacman {
-    background-color: yellow;
+    background-color: rgb(187, 187, 27);
 }
 
 .enemigo {
-    background-color: #f00;
+    background-color: rgb(124, 21, 21);
 }
 
 .subtitulo {
@@ -66,6 +71,9 @@ h1 {
 }
 
 .celda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
     padding: 10px;
