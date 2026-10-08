@@ -27,13 +27,24 @@ const padman = {
         window.addEventListener('keydown', (event) => {
             tableroArray[this.filaActual][this.celdaActual] = 0
             if ((event.key) === 'ArrowUp') {
-                this.filaActual--
+                if (this.filaActual !== 0) {
+                    this.filaActual--
+                } 
+                
             } else if (event.key === 'ArrowDown') {
-                this.filaActual++
+                if (this.filaActual !== filas-1) {
+                    this.filaActual++
+                } 
             } else if (event.key === 'ArrowRight') {
-                this.celdaActual++
+                if (this.celdaActual !== celdas-1) {
+                    this.celdaActual++
+                }
+                
             } else if (event.key === 'ArrowLeft') {
-                this.celdaActual--
+                if (this.celdaActual !== 0) {
+                    this.celdaActual--
+                }
+                
             }
             tableroArray[this.filaActual][this.celdaActual] = 2
             imprimirTablero()
