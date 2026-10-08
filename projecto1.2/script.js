@@ -16,7 +16,7 @@ botonIniciar.addEventListener("click", () => {
     
 })
 
-const celdas = 15
+const celdas = 16
 
 const filas = 16
 
@@ -27,6 +27,9 @@ function rellenarArray() {
         const filaNueva = []
         
         for(let c = 0; c < celdas;c++) {
+            if(c == celdas/2 && f == filas/2) {
+                filaNueva.push(2)
+            }
             filaNueva.push(0)
         }
         tableroArray.push(filaNueva)
@@ -62,7 +65,14 @@ function imprimirTablero() {
     let contenidoHtml = ""
     for(let f = 0;f < filas;f++) {
         for(let c = 0;c < celdas;c++) {
-            contenidoHtml += `<div class="celda"></div>`
+            if (tableroArray[f][c] == 0) {
+                contenidoHtml += `<div class="celda"></div>`
+            } else if (tableroArray[f][c] == 1) {
+                contenidoHtml += `<div class="celda enemigo"></div>`
+            } else {
+                contenidoHtml += `<div class="celda pacman"></div>`
+            }
+            
         }
     }
     tablero.innerHTML = contenidoHtml
