@@ -12,10 +12,19 @@ const datosJuego = dqs("#datosJuego");
 
 const tablero = dqs("#tablero");
 
+const informacionDelNivel = dqs("#informacionDelNivel")
+
 botonIniciar.addEventListener("click", () => {
   contenedorBienvenida.classList.add("hidden");
   contendorJuego.classList.remove("hidden");
+  informacionDelNivel.innerHTML = `<div>+200 puntos por enemigo</div><div></div>`
 });
+
+
+function tiempo() {
+  setTimeout()
+}
+
 
 const celdas = 16;
 
@@ -23,13 +32,12 @@ const filas = 16;
 
 let enemigosComidos = 0;
 
-let puntuacionActual = 0
-
 const enemigos = [];
 
 const padman = {
   filaActual: filas / 2,
   celdaActual: celdas / 2,
+  score: 0,
   moverPacman: function () {
     window.addEventListener("keydown", (e) => {
       e.preventDefault();
@@ -64,7 +72,7 @@ const padman = {
 function imprimirDatos() {
   let htmlContenido = "";
   htmlContenido += `<div>Enemigos comidos: ${enemigosComidos}/5</div>`
-  htmlContenido += `<div>Puntuacion actual: ${puntuacionActual}</div>`
+  htmlContenido += `<div>Puntuacion actual: ${padman.score}</div>`
 
   datosJuego.innerHTML = htmlContenido;
 }
@@ -75,7 +83,7 @@ function comerEnemigo(f, c) {
     for (const enemigo of enemigos) {
       if (enemigo.fila == f && enemigo.celda == c) {
         enemigo.vivo = false;
-        puntuacionActual += 200
+        padman.score += 200
       }
     }
     console.log(enemigos);
