@@ -63,7 +63,7 @@ const padman = {
 
 function imprimirDatos() {
   let htmlContenido = "";
-  htmlContenido += `<div>Enemigos comidos: ${enemigosComidos}</div>`
+  htmlContenido += `<div>Enemigos comidos: ${enemigosComidos}/5</div>`
   htmlContenido += `<div>Puntuacion actual: ${puntuacionActual}</div>`
 
   datosJuego.innerHTML = htmlContenido;
@@ -124,6 +124,7 @@ function resetearJuego() {
       
     }
   }
+  imprimirDatos();
   generarEnemigos()
   imprimirTablero()
 }
@@ -136,16 +137,19 @@ function generarEnemigos() {
       let fValor = Math.floor(Math.random() * filas);
       let cValor = Math.floor(Math.random() * celdas);
       if (tableroArray[fValor][cValor] == 0) {
+        let tipoEnemigo = Math.floor(Math.random() * 3)
         tableroArray[fValor][cValor] = 1;
         if (enemigos[e]) {
-          enemigos[e].fila = fValor,
-          enemigos[e].celda = cValor,
+          enemigos[e].fila = fValor
+          enemigos[e].celda = cValor
           enemigos[e].vivo = true
+          enemigos[e].tipo = tipoEnemigo
         } else {
           enemigos.push({
             fila: fValor,
             celda: cValor,
             vivo: true,
+            tipo: tipoEnemigo,
           });
         }
         
@@ -159,8 +163,6 @@ rellenarArray();
 
 generarEnemigos();
 
-console.log(tableroArray);
-
 function imprimirTablero() {
   let contenidoHtml = "";
   for (let f = 0; f < filas; f++) {
@@ -168,7 +170,11 @@ function imprimirTablero() {
       if (tableroArray[f][c] == 0) {
         contenidoHtml += `<div class="celda"></div>`;
       } else if (tableroArray[f][c] == 1) {
-        contenidoHtml += `<div class="celda enemigo"><img class="imagen" src="img/enemigo.png"></div>`;
+        for (const enemigo of enemigos) {
+          if (f === enemigo.fila && c === enemigo.celda) {
+            contenidoHtml += `<div class="celda enemigo"><img class="imagen" src="img/enemigo${enemigo.tipo}.png"></div>`;
+          }
+        } 
       } else if (tableroArray[f][c] == 2) {
         contenidoHtml += `<div class="celda pacman"><img class="imagen" src="img/pacman.png"></div>`;
       }
@@ -176,6 +182,8 @@ function imprimirTablero() {
   }
   tablero.innerHTML = contenidoHtml;
 }
+
+console.log(enemigos)
 
 imprimirTablero();
 
