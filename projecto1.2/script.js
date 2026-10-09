@@ -86,13 +86,8 @@ function comerEnemigo(f, c) {
 function comprobadorVictoria() {
   if (enemigosComidos === 5) {
     alert("¡Has ganado!");
-    enemigosComidos = 0
-    const {filaActual, celdaActual} = padman
-    filaActual = filas/2
-    celdaActual = celdas/2
-    rellenarArray()
-    generarEnemigos()
-    imprimirTablero()
+    resetearJuego()
+    console.log(tableroArray);
   }
 }
 
@@ -115,6 +110,24 @@ function rellenarArray() {
   }
 }
 
+function resetearJuego() {
+  enemigosComidos = 0
+  padman.filaActual = filas/2
+  padman.celdaActual = celdas/2
+  for (let f = 0; f < filas; f++) {
+    for(let c = 0; c < celdas;c++) {
+      if(c == padman.celdaActual && f == padman.filaActual) {
+        tableroArray[f][c] = 2
+      } else {
+        tableroArray[f][c] = 0
+      }
+      
+    }
+  }
+  generarEnemigos()
+  imprimirTablero()
+}
+
 function generarEnemigos() {
   for (let e = 0; e < 5; e++) {
     let interptor = false;
@@ -124,11 +137,18 @@ function generarEnemigos() {
       let cValor = Math.floor(Math.random() * celdas);
       if (tableroArray[fValor][cValor] == 0) {
         tableroArray[fValor][cValor] = 1;
-        enemigos.push({
-          fila: fValor,
-          celda: cValor,
-          vivo: true,
-        });
+        if (enemigos[e]) {
+          enemigos[e].fila = fValor,
+          enemigos[e].celda = cValor,
+          enemigos[e].vivo = true
+        } else {
+          enemigos.push({
+            fila: fValor,
+            celda: cValor,
+            vivo: true,
+          });
+        }
+        
         interptor = true;
       }
     }
