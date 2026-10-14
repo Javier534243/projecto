@@ -57,48 +57,67 @@ export function dibujarUniversoConEstado(matriz) {
   return (contenedorPrincipal.innerHTML = htmlcontenido);
 }
 
-export function comptarVecinosVivos(matriz, x, y) {
-    const vivos = 0
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
-    if (matriz[x - 1][y - 1]) {
+export function comptarVecinosVivos(matriz, y, x) {
+  let vivos = 0;
+  if (x - 1 !== -1 && y - 1 !== -1 && x +1 < matriz.length && y +1 < matriz[y].length ) {
+   console.log("ddd")
+    if (matriz[y - 1][x - 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
-    if (matriz[x - 1][y]) {
+  if (x - 1 !== -1 && y - 1 !== -1 && x +1 < matriz.length && y +1 < matriz[y].length ) {
+    if (matriz[y - 1][x]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
-    if (matriz[x - 1][y + 1]) {
+  if (x - 1 !== -1 && y - 1 !== -1 && x +1 < matriz.length && y +1 < matriz[y].length) {
+    if (matriz[y - 1][x + 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
-    if (matriz[x][y - 1]) {
+  if (x - 1 !== -1 && y - 1 !== -1 && x +1 < matriz.length && y +1 < matriz[y].length) {
+    if (matriz[y][x - 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
-    if (matriz[x][y + 1]) {
+  if (x - 1 !== -1 && y - 1 !== -1 && x +1 < matriz.length && y +1 < matriz[y].length) {
+    if (matriz[y][x + 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
-    if (matriz[x + 1][y - 1]) {
+  if (x - 1 !== -1 && y - 1 !== -1 && x +1 < matriz.length && y +1 < matriz[y].length) {
+    if (matriz[y + 1][x - 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
-    if (matriz[x + 1][y]) {
+  if (x - 1 !== -1 && y - 1 !== -1 && x +1 < matriz.length && y +1 < matriz[y].length) {
+    if (matriz[y + 1][x]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
-    if (matriz[x + 1][y + 1]) {
+  if (x - 1 !== -1 && y - 1 !== -1 && x +1 < matriz.length && y +1 < matriz[y].length) {
+    if (matriz[y + 1][x + 1]) {
       vivos++;
     }
   }
 
   return vivos;
+}
+
+export function evolucionarCelula(matriz, y, x) {
+  const valor = comptarVecinosVivos(matriz, y, x)
+  let veredicto = false
+  if(matriz[y][x]) {
+    if (valor < 2) {
+      veredicto = false
+    } else if(valor > 3) {
+      veredicto = false
+    }
+  }
+  if(!matriz[y][x]) {
+    veredicto = true
+  }
+  dibujarUniversoConEstado(matriz)
+  matriz[y][x] = veredicto
+  return matriz[y][x] 
 }
