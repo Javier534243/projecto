@@ -1,4 +1,5 @@
-export function dibujaUniverso(columnas, filas, contenedor) {
+export function dibujaUniverso(columnas, filas) {
+    const contenedorPrincipal = document.querySelector("#contenedorPrincipal")
     let htmlcontenido = `<div class="universo">`
     for(let i = 0;i <= filas ;i++) {
         htmlcontenido += `<div class="fila">`
@@ -10,4 +11,47 @@ export function dibujaUniverso(columnas, filas, contenedor) {
     htmlcontenido += `</div>`
 
     contenedor.innerHTML = htmlcontenido
+}
+
+export function aleatorio() {
+    if(Math.random() >= 0.5) {
+        return true
+    } else {
+        return false
+    }
+}
+
+export function aleatoriPercentatge(porcentage) {
+    if(Math.floor(Math.random() * 101)  <= porcentage) {
+        return true
+    } else {
+        return false
+    }
+}
+
+export function crearMatriz(columnas, filas) {
+    const arrayBidimensional = []
+    for(let i = 0;i < filas;i++) {
+        const filasArray = []
+        for(let j = 0;j<columnas;j++) {
+            filasArray.push(aleatorio())
+        }
+        arrayBidimensional.push(filasArray)
+    }
+    console.log(arrayBidimensional)
+}
+
+export function dibujarUniversoConEstado(matriz) {
+    const contenedorPrincipal = document.querySelector("#contenedorPrincipal")
+    let htmlcontenido = `<div class="universo">`
+    for(let i = 0; i <= matriz.length; i++) {
+        htmlcontenido += `<div class="fila">`
+        for(let j = 0;j <= matriz[i].length ;j++) {
+            htmlcontenido += `<div class="celula ${matriz[i][j]}" data-id="${i}-${j}">${i}-${j}</div>`
+        }
+        htmlcontenido += `</div>`
+    }
+    htmlcontenido += `</div>`
+
+    contenedorPrincipal.innerHTML = htmlcontenido
 }
