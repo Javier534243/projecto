@@ -1,4 +1,4 @@
-import {dibujaUniverso, aleatorio, aleatoriPercentatge, crearMatriz, dibujarUniversoConEstado} from "./funcion.js"
+import {dibujaUniverso, aleatorio, aleatoriPercentatge, crearMatriz, dibujarUniversoConEstado, comptarVecinosVivos} from "./funcion.js"
 
 
 
@@ -15,4 +15,13 @@ for(let i = 0;i < 1000; i++) {
 
 console.log(contadorTrue)
 
-dibujarUniversoConEstado(crearMatriz(5,5))
+const filas = 10
+const columnas = 10
+
+const matriz = crearMatriz(filas,columnas)
+
+dibujarUniversoConEstado(matriz)
+
+
+
+console.log(comptarVecinosVivos(matriz, 1, 1))
