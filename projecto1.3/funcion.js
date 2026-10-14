@@ -59,42 +59,42 @@ export function dibujarUniversoConEstado(matriz) {
 
 export function comptarVecinosVivos(matriz, x, y) {
     const vivos = 0
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > y) {
+  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
     if (matriz[x - 1][y - 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > y) {
+  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
     if (matriz[x - 1][y]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > y) {
+  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
     if (matriz[x - 1][y + 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > y) {
+  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
     if (matriz[x][y - 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > y) {
+  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
     if (matriz[x][y + 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > y) {
+  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
     if (matriz[x + 1][y - 1]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > y) {
+  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
     if (matriz[x + 1][y]) {
       vivos++;
     }
   }
-  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > y) {
+  if (x - 1 !== -1 && y - 1 !== -1 && y + 1 > matriz.lenght && matriz[y].lenght > x +1) {
     if (matriz[x + 1][y + 1]) {
       vivos++;
     }
