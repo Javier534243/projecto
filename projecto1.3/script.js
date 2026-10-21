@@ -1,4 +1,4 @@
-import {dibujaUniverso, aleatorio, aleatoriPercentatge, crearMatriz, dibujarUniversoConEstado, comptarVecinosVivos, evolucionarCelula} from "./funcion.js"
+import {dibujaUniverso, aleatorio, aleatoriPercentatge, crearMatriz, dibujarUniversoConEstado, comptarVecinosVivos, evolucionarCelula, crearMatrizEvolucionada} from "./funcion.js"
 
 
 
@@ -18,9 +18,15 @@ console.log(contadorTrue)
 const filas = 10
 const columnas = 10
 
-const matriz = crearMatriz(filas,columnas)
+const matrizPrimera = [];
+
+const matriz = crearMatriz(matrizPrimera,filas,columnas)
 
 dibujarUniversoConEstado(matriz)
 
 
 console.log(evolucionarCelula(matriz,3,3))
+
+const matrizActual = []
+
+crearMatrizEvolucionada(matriz)

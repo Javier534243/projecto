@@ -29,17 +29,17 @@ export function aleatoriPercentatge(porcentage) {
   }
 }
 
-export function crearMatriz(columnas, filas) {
-  const arrayBidimensional = [];
+export function crearMatriz(matriz, columnas, filas) {
+  const matriz = [];
   for (let i = 0; i < filas; i++) {
     const filasArray = [];
     for (let j = 0; j < columnas; j++) {
       filasArray.push(aleatorio());
     }
-    arrayBidimensional.push(filasArray);
+    matriz.push(filasArray);
   }
-  console.log(arrayBidimensional);
-  return arrayBidimensional;
+  console.log(matriz);
+  return matriz;
 }
 
 export function dibujarUniversoConEstado(matriz) {
@@ -110,14 +110,27 @@ export function evolucionarCelula(matriz, y, x) {
   if(matriz[y][x]) {
     if (valor < 2) {
       veredicto = false
+    }else if (valor === 2 || valor === 3) {
+      veredicto = true
     } else if(valor > 3) {
       veredicto = false
     }
   }
-  if(!matriz[y][x]) {
+  if(!matriz[y][x] && valor === 3) {
     veredicto = true
   }
   dibujarUniversoConEstado(matriz)
   matriz[y][x] = veredicto
-  return matriz[y][x] 
+  return matriz[y][x]
+}
+
+
+export function crearMatrizEvolucionada(matrizActual) {
+  crearMatriz(matrizActual, columnas, filas)
+  for(let y = 0;y < matrizActual.length;y++) {
+    for(let x = 0;x < matrizActual[y].length;x++) {
+      evolucionarCelula(matrizActual,y,x)
+    }
+  }
+  dibujarUniversoConEstado(matrizActual)
 }
